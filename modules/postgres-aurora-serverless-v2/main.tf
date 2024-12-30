@@ -35,6 +35,7 @@ resource "aws_rds_cluster" "cluster" {
   db_instance_parameter_group_name = aws_db_parameter_group.db.name
   db_subnet_group_name             = aws_db_subnet_group.cluster.name
   vpc_security_group_ids           = concat([aws_security_group.db.id], var.security_group_ids)
+  enable_http_endpoint             = var.enable_http_endpoint
   serverlessv2_scaling_configuration {
     max_capacity = var.max_capacity
     min_capacity = var.min_capacity

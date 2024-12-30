@@ -64,6 +64,12 @@ variable "master_username" {
   default     = "postgres"
 }
 
+variable "enable_http_endpoint" {
+  description = "Enable the Data API HTTP endpoint for the Aurora DB cluster."
+  type        = bool
+  default     = false
+}
+
 variable "max_capacity" {
   description = "The maxiumum capacity for an Aurora DB cluster in serverless DB engine mode. Must be greater than or equal to minimum capacity"
   type        = number
