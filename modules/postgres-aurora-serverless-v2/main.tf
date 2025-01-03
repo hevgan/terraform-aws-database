@@ -57,6 +57,7 @@ resource "aws_rds_cluster_instance" "writer" {
   performance_insights_enabled    = var.performance_insights_enabled
   performance_insights_kms_key_id = var.performance_insights_enabled ? data.aws_kms_key.db.arn : null
   depends_on                      = [aws_rds_cluster.cluster]
+  publicly_accessible             = var.writer_publicly_accessible
 }
 
 resource "aws_rds_cluster_instance" "reader" {
@@ -75,6 +76,8 @@ resource "aws_rds_cluster_instance" "reader" {
   performance_insights_enabled    = var.performance_insights_enabled
   performance_insights_kms_key_id = var.performance_insights_enabled ? data.aws_kms_key.db.arn : null
   depends_on                      = [aws_rds_cluster.cluster]
+  publicly_accessible             = var.reader_publicly_accessible
+
 }
 
 resource "aws_db_parameter_group" "db" {

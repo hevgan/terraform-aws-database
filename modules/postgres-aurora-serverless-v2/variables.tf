@@ -25,6 +25,7 @@ variable "db_instance_parameters" {
   default = []
 }
 
+
 variable "db_parameter_group_tags" {
   description = "A map of tags to add to the db_parameter_group resource."
   default     = {}
@@ -66,6 +67,19 @@ variable "master_username" {
 
 variable "enable_http_endpoint" {
   description = "Enable the Data API HTTP endpoint for the Aurora DB cluster."
+  type        = bool
+  default     = false
+}
+
+
+variable "writer_publicly_accessible" {
+  description = "Whether the writer instance is publicly accessible."
+  type        = bool
+  default     = false
+}
+
+variable "reader_publicly_accessible" {
+  description = "Whether the reader instances are publicly accessible."
   type        = bool
   default     = false
 }
